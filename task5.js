@@ -6,6 +6,7 @@ function maxDate(arr) {
    let c = 0, k = 0;
    for (let i = 0; i < arr.length; i++) {
       let date = new Date(arr[i]);
+      console.log(date);
       if(date > c) {
          c = date;
          k = i;

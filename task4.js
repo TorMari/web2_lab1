@@ -24,7 +24,7 @@ function printRes(n, res) {
 }
 
 let arr = [1, 2, 3, 5, 20, 6, 18, 15, 12, 7]; 
-arr = arr.sort(function (a, b) {
+arr = arr.sort((a, b) => {
    return a - b;
 });
 

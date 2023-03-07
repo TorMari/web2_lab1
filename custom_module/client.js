@@ -9,13 +9,10 @@ let all_clients = new Array();
 
 //Пошук одного замовника в колекції
 function find_Client(name, budget) {
-   for (let id = 0; id < all_clients.length; id++) {
-      let client = all_clients[id];
-      if(name === client.name && budget === client.budget) {
-         return client;
-      }
-   }
-   return -1;
+   let res = all_clients.find(e => (name === e.name && budget === e.budget))
+   if(res === undefined)
+      return -1;
+   return res;
 }
 
 function check_Client(name, budget) {
