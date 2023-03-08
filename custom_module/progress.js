@@ -52,21 +52,29 @@ function delete_ProjProg(name, doer) {
 //Отримання списку проектів на виконанні
 function get_progress_list() {
    console.log(`\nList of all projects in progress:`);
-   for (let id = 0; id < all_projects.length; id++) {
+   all_projects.forEach(element => {
+      console.log(`Project's name: ${element.project.name}, description: ${element.project.description}, client: ${element.project.client.name}, project doer: ${element.doer.name}`);
+   });
+   /*for (let id = 0; id < all_projects.length; id++) {
       let progress = all_projects[id];
       console.log(`Project's name: ${progress.project.name}, description: ${progress.project.description}, client: ${progress.project.client.name}, project doer: ${progress.doer.name}`);
-   }
+   }*/
 }
 
 //Пошук усіх проектів виконавця
 function getDoerProject(doer) {
    console.log(`\n\nList of ${doer.name}'s projects:`)
-   for (let id = 0; id < all_projects.length; id++) {
+   all_projects.forEach(element => {
+      if(element.doer === doer) {
+         console.log(`Project's name: ${element.project.name}, description: ${element.project.description}, client: ${element.project.client.name}`)
+      }
+   });
+   /*for (let id = 0; id < all_projects.length; id++) {
       let progress = all_projects[id];
       if(progress.doer === doer) {
          console.log(`Project's name: ${progress.project.name}, description: ${progress.project.description}, client: ${progress.project.client.name}`)
       }
-   }
+   }*/
 }
 
 

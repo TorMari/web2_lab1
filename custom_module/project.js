@@ -10,13 +10,17 @@ let all_projects = new Array();
 
 //Пошук одного проекту в колекції
 function find_Project(name, description) {
-   for (let id = 0; id < all_projects.length; id++) {
+   /*for (let id = 0; id < all_projects.length; id++) {
       let project = all_projects[id];
       if(name === project.name && description === project.description) {
          return project;
       }
    }
-   return -1;
+   return -1;*/
+   let res = all_projects.find(e => (name === e.name && description === e.description))
+   if(res === undefined)
+      return -1;
+   return res;
 }
 
 //Додавання нового проекту в колекцію
@@ -53,21 +57,29 @@ function delete_Project(name, description) {
 //Отримання списку проектів 
 function get_projects_list() {
    console.log(`\nList of all projects:`);
-   for (let id = 0; id < all_projects.length; id++) {
+   all_projects.forEach(element => {
+      console.log(`Project's name: ${element.name}, description: ${element.description}, client: ${element.client.name}`);
+   });
+   /*for (let id = 0; id < all_projects.length; id++) {
       let project = all_projects[id];
       console.log(`Project's name: ${project.name}, description: ${project.description}, client: ${project.client.name}`);
-   }
+   }*/
 }
 
 //Пошук усіх проектів замовника
 function getClientProject(client) {
    console.log(`\n\nList of ${client.name}'s projects:`)
-   for (let id = 0; id < all_projects.length; id++) {
+   all_projects.forEach(element => {
+      if(element.client === client) {
+         console.log(`Project's name: ${element.name}, description: ${element.description}`)
+      }
+   });
+   /*for (let id = 0; id < all_projects.length; id++) {
       let project = all_projects[id];
       if(project.client === client) {
          console.log(`Project's name: ${project.name}, description: ${project.description}`)
       }
-   }
+   }*/
 }
 
 

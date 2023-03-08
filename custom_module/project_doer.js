@@ -9,13 +9,17 @@ let all_doers = new Array();
 
 //Пошук одного виконавця в колекції
 function find_Doer(name, experience) {
-   for (let id = 0; id < all_doers.length; id++) {
+   /*for (let id = 0; id < all_doers.length; id++) {
       let doer = all_doers[id];
       if(name === doer.name && experience === doer.experience) {
          return doer;
       }
    }
-   return -1;
+   return -1;*/
+   let res = all_doers.find(e => (name === e.name && experience === e.experience))
+   if(res === undefined)
+      return -1;
+   return res;
 }
 
 //Додавання нового виконавця в колекцію
@@ -51,10 +55,13 @@ function delete_Doer(name, experience) {
 //Отримання списку виконавців 
 function get_doers_list() {
    console.log(`\nList of all project doers:`);
-   for (let id = 0; id < all_doers.length; id++) {
+   all_doers.forEach(element => {
+      console.log(`Project doer's name: ${element.name}, experience: ${element.experience} years`);
+   });
+   /*for (let id = 0; id < all_doers.length; id++) {
       let doer = all_doers[id];
       console.log(`Project doer's name: ${doer.name}, experience: ${doer.experience} years`);
-   }
+   }*/
 }
 
 

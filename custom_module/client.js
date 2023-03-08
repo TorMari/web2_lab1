@@ -57,10 +57,13 @@ function delete_Client(name, budget) {
 //Отримання списку замовників 
 function get_clients_list() {
    console.log(`\nList of all clients:`);
-   for (let id = 0; id < all_clients.length; id++) {
+   all_clients.forEach(element => {
+      console.log(`Client's name: ${element.name}, budget: ${element.budget} $`);
+   });
+   /*for (let id = 0; id < all_clients.length; id++) {
       let client = all_clients[id];
       console.log(`Client's name: ${client.name}, budget: ${client.budget} $`);
-   }
+   }*/
 }
 
 
